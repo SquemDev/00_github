@@ -1,0 +1,127 @@
+// Mixins
+// --------------------------------------------------
+.font-size(@font-size: 16){
+@rem: (@font-size / 16);
+font-size : @font-size * 1px;
+font-size : ~"@{rem}rem"; }
+
+.text-overflow() {
+overflow : hidden;
+text-overflow : ellipsis;
+white-space : nowrap; }
+
+.rounded(@radius:4px) {
+-webkit-border-radius : @radius;
+-moz-border-radius : @radius;
+border-radius : @radius; }
+
+.transition {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.absolute-center {
+  .absolute;
+  left: 0;
+  right: 0;
+  display: table;
+  margin: 0 auto;
+}
+.vertical-center {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} 
+.flex-container-just {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+} 
+.flex-container-center {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+} 
+.appearance {
+  -webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;
+   outline: 0;
+}
+
+.before(@width, @height) {
+  content: '';
+  display: inline-block;
+  width: @width * 1px;
+  height: @height * 1px;
+  position: relative;
+  transition: all .5s;
+  outline: 0;
+}
+
+.after(@width, @height) {
+  content: '';
+  display: inline-block;
+  width: @width * 1px;
+  height: @height * 1px;
+  position: relative;
+  transition: all .5s;
+  outline: 0;
+}
+
+.height-float {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Utilities
+@import "mixins/hide-text.less";
+@import "mixins/opacity.less";
+@import "mixins/image.less";
+@import "mixins/labels.less";
+@import "mixins/reset-filter.less";
+@import "mixins/resize.less";
+@import "mixins/responsive-visibility.less";
+@import "mixins/size.less";
+@import "mixins/tab-focus.less";
+@import "mixins/reset-text.less";
+@import "mixins/text-emphasis.less";
+@import "mixins/text-overflow.less";
+@import "mixins/vendor-prefixes.less";
+
+// Components
+@import "mixins/alerts.less";
+@import "mixins/buttons.less";
+@import "mixins/panels.less";
+@import "mixins/pagination.less";
+@import "mixins/list-group.less";
+@import "mixins/nav-divider.less";
+@import "mixins/forms.less";
+@import "mixins/progress-bar.less";
+@import "mixins/table-row.less";
+
+// Skins
+@import "mixins/background-variant.less";
+@import "mixins/border-radius.less";
+@import "mixins/gradients.less";
+
+// Layout
+@import "mixins/clearfix.less";
+@import "mixins/center-block.less";
+@import "mixins/nav-vertical-align.less";
+@import "mixins/grid-framework.less";
+@import "mixins/grid.less";

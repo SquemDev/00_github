@@ -1,0 +1,23 @@
+/* commons-theme */
+
+
+// ELIMINA EL BORDE AZUL QUE APARECE EN GOGOLE CHROME
+:focus {outline:0;}
+
+input[type="checkbox"] {
+	.appearance;
+	outline: 0 !important;
+	&:before {
+		.before(13px,13px);
+		.relative;
+		.transition;
+		background: url('../images/icon-checkbox.png') no-repeat center;
+		content: '';
+		display: inline-block;
+		margin-right: 6px;
+		top: 0px;
+	}
+	&:checked:before {
+		background: url('../images/icon-checked.png') no-repeat center;
+	}
+}

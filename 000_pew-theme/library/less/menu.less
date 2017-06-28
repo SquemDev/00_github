@@ -1,0 +1,27 @@
+/* menu */
+#cssmenu {
+	.total;
+	text-align: center;	
+	> ul {
+		background: rgba(42, 67, 120, 0.4);
+		display: inline-block;
+		z-index: 12;
+		> li {
+			.font-size(14);
+			display: inline-block;
+			a {
+				// border-right: 1px solid red;
+				.serif;
+				color: white;
+				letter-spacing: 1px;
+				padding: 10px;
+				text-decoration:none;
+				text-transform: uppercase;
+			}
+			&:hover > a,
+			&.active a {
+				// color: @orange;
+			}
+		}
+	}
+}	

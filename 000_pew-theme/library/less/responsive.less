@@ -1,0 +1,86 @@
+/* responsive */
+
+
+// 
+//  Desktop first
+//
+//
+
+@import "mediaqueries/max-1200.less";
+
+@import "mediaqueries/max-991.less";
+
+@import "mediaqueries/max-768.less";
+
+@import "mediaqueries/max-480.less";
+
+@import "mediaqueries/max-320.less";
+
+
+/* 
+//  mobile first
+//
+//
+
+@import "mediaqueries/max-320.less";
+
+@import "mediaqueries/max-480.less";
+
+@import "mediaqueries/max-768.less";
+
+@import "mediaqueries/max-991.less";
+
+@import "mediaqueries/max-1200.less";
+
+*/
+
+
+// 
+// @media screen and (min-width: 1024px) {
+// 	
+// }
+// @media screen and (min-width: 992px) {
+// 	
+// }
+// 
+// @media screen and (min-width: 768px) and (max-width: 1023px) {
+// 	
+// }
+// 
+
+@media screen and (max-width: 767px) {
+	header.header {
+		padding: 20px;
+		.btn-nav {
+			cursor: pointer;
+			height: 30px;
+			position: absolute;
+			right: 20px;
+			top: 30px;
+			width: 30px;
+			z-index: 99;
+			&:before {
+				.total;
+				border-bottom: 4px solid black;
+				content: "";
+				height: 1px;
+				margin-bottom: 4px;
+			}
+			&:after {
+				.total;
+				border-bottom: 4px solid black;
+				border-top: 4px solid black;
+				content: "";
+				height: 12px;
+			}
+		}
+		#cssmenu {
+			display: none;
+			ul {
+				li {
+					display: block;
+				}
+			}
+		}
+	}
+}
