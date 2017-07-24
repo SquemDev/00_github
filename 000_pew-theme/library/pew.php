@@ -354,4 +354,44 @@ add_action('init', function() {
      }
   }
 });
+
+
+
+/* 
+ *	Este fragmento de codigo consigue establecer un tamaño máximo y mínimo de subida de archivos jpg :) 
+ *
+ *	DOC:  https://wordpress.stackexchange.com/questions/130203/limit-image-resolution-on-upload
+ */
+add_filter('wp_handle_upload_prefilter','mdu_validate_image_size');
+function mdu_validate_image_size( $file ) {
+    $image = getimagesize($file['tmp_name']);
+    $minimum = array(
+        'width' => '400',
+        'height' => '400'
+    );
+    $maximum = array(
+        'width' => '2000',
+        'height' => '2000'
+    );
+    $image_width = $image[0];
+    $image_height = $image[1];
+
+    $too_small = "Las dimensiones de la imagen son demasiado pequeñas. El tamaño mínimo es de {$minimum['width']} por {$minimum['height']} pixels. Ha subido una imagen de $image_width por $image_height pixels.";
+    $too_large = "Las dimensiones de la imagen son demasiado grandes. El tamaño máximo es de {$maximum['width']} por {$maximum['height']} pixels. La imagen que ha subido es de $image_width por $image_height pixels.";
+
+    if ( $image_width < $minimum['width'] || $image_height < $minimum['height'] ) {
+        // add in the field 'error' of the $file array the message 
+        $file['error'] = $too_small; 
+        return $file;
+    }
+    elseif ( $image_width > $maximum['width'] || $image_height > $maximum['height'] ) {
+        //add in the field 'error' of the $file array the message
+        $file['error'] = $too_large; 
+        return $file;
+    }
+    else
+        return $file;
+}
+
+
 ?>
