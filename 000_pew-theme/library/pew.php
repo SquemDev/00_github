@@ -107,8 +107,19 @@ function pew_scripts_and_styles() {
 		// modernizr (without media query polyfill)
 		wp_register_script( 'pew-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
 
+		
+		/*
+		 *	USER = juan_sg
+		 *	Implementación de hash_file('md5', get_stylesheet_directory()
+		 *
+		 * 	ANTIGUO => wp_register_style( 'pew-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+		 *
+		 *	Esta función añade a style.css una extensión de números a modo de versión. 
+		 *	Si el style.css se modifica o cambia, aunque sea de forma mínima, la versión cambiará y el navegador se verá obligado a descargar el archivo style.css
+		 */
 		// register main stylesheet
-		wp_register_style( 'pew-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+		wp_register_style('pew-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css?hash=' . hash_file('md5', get_stylesheet_directory() . '/library/css/style.css'), array(), '', 'all');
+
 
 
     // comment reply script for threaded comments
