@@ -31,7 +31,8 @@
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-    <?php echo mytheme_option( 'analytics' ); ?>
+	
+    <?php if (stripos($_SERVER['HTTP_USER_AGENT'],"Insights") === false) { echo mytheme_option( 'analytics' ); } ?>
 
     <?php wp_head(); ?>
   </head>
